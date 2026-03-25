@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h2>Lista hotela</h2>
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Redni broj</th>
+            <th>Naziv</th>
+            <th>Adresa</th>
+            <th>Zvezdice</th>
+            <th>Ljubimci</th>
+            <th>Vrsta smestaja</th>
+            <th>Obrok</th>
+            <th>Grad</th>
+            <th>Izmeni</th>
+            <th>Obrisi</th>
+        </tr>
+        {% for hotel in hoteli %}
+        <tr style="text-align:center;">
+            <td>{{ hotel.hotelID }}</td>
+            <td>{{ hotel.naziv }}</td>
+            <td>{{ hotel.adresa }}</td>
+            <td>{{ hotel.zvezdice }}</td>
+            <td>
+                {% if hotel.ljubimci == 1 %}
+                    Da
+                {% else %}
+                    Ne
+                {% endif %}
+            </td>
+            <td>{{ hotel.vrsta_smestaja }}</td>
+            <td>{{ hotel.obrok }}</td>
+            <td>{{ hotel.grad }}</td>
+
+            <td><a href="/izmeni_hotel/{{ hotel.hotelID }}">Izmeni</a></td>
+            <td><a href="/obrisi_hotel/{{ hotel.hotelID }}">Obrisi</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Times New Roman, serif;
+            font-size: 20px;
+            padding: 20px;
+        }
+        a {
+            color: black;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aplikacija za azuriranje podataka o hotelima</h1>
+    <a href="/"></a>Početna</a>
+    <a href="/hoteli">Hoteli</a>
+    <a href="/dodaj_smestaj">Dodaj novi hotel</a>
+    <br>
+    <main> 
+    {% block content %}
+    {% endblock %}
+    </main>
+</body>
+</html>
