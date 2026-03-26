@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Preporuka hotela</title>
     <style>
         body {
             font-family: Times New Roman, serif;
@@ -17,10 +17,14 @@
     </style>
 </head>
 <body>
-    <h1>Aplikacija za azuriranje podataka o hotelima</h1>
-    <a href="/"></a>Početna</a>
-    <a href="/hoteli">Hoteli</a>
+    <h1>Gde zelite da idete?</h1>
+    <a href="/"></a>Hoteli</a>
     <a href="/dodaj_smestaj">Dodaj novi hotel</a>
+    <a href="/izmeni_hotel">Izmeni podatke o hotelu</a>
+    <a href="/izmeni_hotel/{{ hotel.hotelID }}">Izmeni</a>
+    <a href="/obrisi_hotel/{{ hotel.hotelID }}">Obrisi</a>
+    <a href="/filter">Preporuci mi hotel</a>
+
     <br>
     <main> 
     {% block content %}

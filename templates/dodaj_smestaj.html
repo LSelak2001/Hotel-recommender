@@ -7,21 +7,24 @@
     <input type="text" name="naziv"><br><br>
 
     Grad:<br>
-    <select name="gradID" required>
-        <option value="1">Tokio</option>
-        <option value="2">Bec</option>
-        <option value="3">Grac</option>
-        <option value="4">Beograd</option>
-    </select><br><br>
+    <input type="text" name="grad" required><br><br>
+
+    Drzava:<br>
+    <input type="text" name="drzava" required><br><br>
+
+    Kontinent:<br>
+    <input type="text" name="kontinet" required><br><br>
 
     Adresa:<br>
     <input type="text" name="adresa" required><br><br>
+    
 
     Zvezdice:<br>
     <input type="number" name="zvezdice" min="1" max="5" required><br><br>
 
     Ljubimci:<br>
     <select name="ljubimci" required>
+        <option value="">-- Izaberite --</option>
         <option value="1">Da</option>
         <option value="0">Ne</option>
     </select><br><br>
@@ -32,7 +35,7 @@
     Obrok:<br>
     <input type="text" name="obrok" required><br><br>
 
-    <button type="submit">Upisati podatke</button>
+    <button type="submit">Dodaj hotel</button>
 </form>
 
 {% endblock %}
