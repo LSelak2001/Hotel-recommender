@@ -7,21 +7,22 @@
 <form method="post">
 
     Naziv hotela:<br>
-    <input type="text" name="naziv" value="{{ hotel.naziv }}" required><br><br>
+    <input type="text" name="naziv" value="{{ hotel.naziv }}"><br><br>
 
     Grad:<br>
-    <select name="gradID">
-        <option value="1" {% if hotel.gradID == 1 %}selected{% endif %}>Tokio</option>
-        <option value="2" {% if hotel.gradID == 2 %}selected{% endif %}>Beč</option>
-        <option value="3" {% if hotel.gradID == 3 %}selected{% endif %}>Grac</option>
-        <option value="4" {% if hotel.gradID == 4 %}selected{% endif %}>Beograd</option>
-    </select><br><br>
+    <input type="text" name="grad" value="{{ hotel.grad }}"><br><br>
+
+    Drzava:<br>
+    <input type="text" name="drzava" value="{{ hotel.drzava }}"><br><br>
+
+    Kontinent:<br>
+    <input type="text" name="kontinet" value="{{ hotel.kontinet }}"><br><br>
 
     Adresa:<br>
-    <input type="text" name="adresa" value="{{ hotel.adresa }}" required><br><br>
+    <input type="text" name="adresa" value="{{ hotel.adresa }}"><br><br>
 
     Zvezdice:<br>
-    <input type="number" name="zvezdice" min="1" max="5" value="{{ hotel.zvezdice }}" required><br><br>
+    <input type="number" name="zvezdice" min="1" max="5" value="{{ hotel.zvezdice }}"><br><br>
 
     Ljubimci:<br>
     <select name="ljubimci">
@@ -30,10 +31,10 @@
     </select><br><br>
 
     Vrsta smeštaja:<br>
-    <input type="text" name="vrsta_smestaja" value="{{ hotel.vrsta_smestaja }}" required><br><br>
+    <input type="text" name="vrsta_smestaja" value="{{ hotel.vrsta_smestaja }}"><br><br>
 
     Obrok:<br>
-    <input type="text" name="obrok" value="{{ hotel.obrok }}" required><br><br>
+    <input type="text" name="obrok" value="{{ hotel.obrok }}"><br><br>
 
     <button type="submit">Sačuvaj izmene</button>
 
