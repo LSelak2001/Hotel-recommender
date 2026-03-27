@@ -39,7 +39,7 @@ def dodaj_smestaj():
         konekcija.rollback()
         raise
 
-@smestaj_bp.route("/izmeni_smestaj/<int:hotel_id>", methods=["GET", "POST"])
+@smestaj_bp.route("/izmeni_hotel/<int:hotel_id>", methods=["GET", "POST"])
 def izmeni(hotel_id):
     if request.method == "GET":
         cursor.execute("""
@@ -49,7 +49,7 @@ def izmeni(hotel_id):
             WHERE hotel.hotelID = %s
         """, (hotel_id,))
         hotel = cursor.fetchone()
-        return render_template("izmeni_smestaj.html", hotel=hotel)
+        return render_template("izmeni_hotel.html", hotel=hotel)
 
     # POST - save changes
     try:
