@@ -1,0 +1,68 @@
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #d3d019;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #f7f7f7;
+}
+
+form {
+    display: inline;
+    margin: 20px auto;
+    width: 80%;
+    alignment-baseline: center;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input:focus, select:focus  {
+    border: 2px solid  #0056b3 ;
+    outline: none;
+    box-shadow: 0 0 12px rgba(0, 123, 255, 0.4);
+
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg,#007BFF, #0056b3);
+    border: none;
+    color: white;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    
+}
+
+button:hover {
+    background: linear-gradient(135deg, #0056b3, #004085);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px  4px rgba(0, 0, 0, 0.2);
+}    
+
+a:hover {
+    background: linear-gradient(135deg, #0056b3, #004085);   
+}
+a:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #003f7f;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
