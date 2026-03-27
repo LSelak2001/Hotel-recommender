@@ -4,40 +4,39 @@
 
 <h2>Izmeni hotel</h2>
 
-<form method="post">
+<div style="max-width: 400px; margin: 0 auto;">
+<form action="{{ url_for('smestaj.izmeni', hotel_id=hotel.hotelID) }}" method="POST" style="display: flex; flex-direction: column; gap: 10px;">
 
-    Naziv hotela:<br>
-    <input type="text" name="naziv" value="{{ hotel.naziv }}"><br><br>
+    <label>Naziv:</label>
+    <input type="text" name="naziv" value="{{ hotel.naziv }}">
 
-    Grad:<br>
-    <input type="text" name="grad" value="{{ hotel.grad }}"><br><br>
+    <label>Adresa:</label>
+    <input type="text" name="adresa" value="{{ hotel.adresa }}">
 
-    Drzava:<br>
-    <input type="text" name="drzava" value="{{ hotel.drzava }}"><br><br>
+    <label>Grad:</label>
+    <input type="text" name="naziv_grada" value="{{ hotel.grad_naziv }}">
 
-    Kontinent:<br>
-    <input type="text" name="kontinet" value="{{ hotel.kontinet }}"><br><br>
+    <input type="hidden" name="grad_id" value="{{ hotel.gradID }}">
 
-    Adresa:<br>
-    <input type="text" name="adresa" value="{{ hotel.adresa }}"><br><br>
+    <label>Zvezdice:</label>
+    <input type="number" name="zvezdice" value="{{ hotel.zvezdice }}" min="1" max="5">
 
-    Zvezdice:<br>
-    <input type="number" name="zvezdice" min="1" max="5" value="{{ hotel.zvezdice }}"><br><br>
-
-    Ljubimci:<br>
+    <label>Ljubimci:</label>
     <select name="ljubimci">
         <option value="1" {% if hotel.ljubimci == 1 %}selected{% endif %}>Da</option>
         <option value="0" {% if hotel.ljubimci == 0 %}selected{% endif %}>Ne</option>
-    </select><br><br>
+    </select>
 
-    Vrsta smeštaja:<br>
-    <input type="text" name="vrsta_smestaja" value="{{ hotel.vrsta_smestaja }}"><br><br>
+    <label>Vrsta smeštaja:</label>
+    <input type="text" name="vrsta_smestaja" value="{{ hotel.vrsta_smestaja }}">
 
-    Obrok:<br>
-    <input type="text" name="obrok" value="{{ hotel.obrok }}"><br><br>
+    <label>Obrok:</label>
+    <input type="text" name="obrok" value="{{ hotel.obrok }}">
 
     <button type="submit">Sačuvaj izmene</button>
+    <a href="{{ url_for('hoteli.index') }}">Odustani</a>
 
 </form>
+</div>
 
 {% endblock %}

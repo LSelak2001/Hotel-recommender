@@ -12,6 +12,7 @@
             <th>Vrsta smestaja</th>
             <th>Obrok</th>
             <th>Grad</th>
+            <th>Akcije</th>
         </tr>
         {% for hotel in hoteli %}
         <tr style="text-align:center;">
@@ -28,9 +29,27 @@
             </td>
             <td>{{ hotel.vrsta_smestaja }}</td>
             <td>{{ hotel.obrok }}</td>
-            <td>{{ hotel.grad }}</td>
-
+            <td>{{ hotel.grad_naziv }}</td>
+        <td style="text-align: center; vertical-align: middle;">
+            <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
+                <a href="/izmeni_hotel/{{ hotel.hotelID }}" style="text-decoration: none;">
+                    <button type="button" style="margin: 0;">Izmeni</button>
+                </a>
+                <form action="/obrisi/{{ hotel.hotelID }}" method="POST" style="margin: 0; padding: 0;">
+                    <button type="submit" onclick="return confirm('Da li ste sigurni')">Obrisi</button>
+                </form>
+            </div>
+        </td>
         </tr>
         {% endfor %}
+
     </table>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13288.628169658825!2d20.33823924485392!3d43.887978584506556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ssr!2srs!4v1774610027805!5m2!1ssr!2srs" 
+        width="600" 
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
 {% endblock %}
