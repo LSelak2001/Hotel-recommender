@@ -7,6 +7,8 @@
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
+CREATE DATABASE IF NOT EXISTS `smestaj`;
+USE `smestaj`;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -41,7 +43,7 @@ INSERT INTO `drzava` (`drzavaID`, `drzava`, `kontinent`) VALUES
 (1, 'Austrija', 'Evropa'),
 (2, 'Japan', 'Azija'),
 (3, 'Egipat', 'Afrika'),
-(6, 'Srbija', 'Evropa');
+(4, 'Srbija', 'Evropa');
 
 -- --------------------------------------------------------
 
@@ -63,7 +65,7 @@ INSERT INTO `grad` (`gradID`, `naziv_grada`, `drzavaID`) VALUES
 (1, 'Tokio', 2),
 (2, 'Bec', 1),
 (3, 'Grac', 1),
-(4, 'Beograd', 6);
+(4, 'Beograd', 4);
 
 -- --------------------------------------------------------
 
