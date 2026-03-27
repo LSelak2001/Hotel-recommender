@@ -7,26 +7,30 @@
     <title>Preporuka hotela</title>
     <style>
         body {
-            font-family: Times New Roman, serif;
+            font-family: Arial, serif;
             font-size: 20px;
             padding: 20px;
+            background-color: rgb(38, 153,153);
+            align-items: center;
         }
         a {
-            color: black;
+            color: rgb(187, 91, 28);
             margin-right: 10px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <h1>Gde zelite da idete?</h1>
-    <a href="/"></a>Hoteli</a>
+    <h1>Gde zelite da idete?</h1> 
+
+    <div style="text-align: center; margin: 20px 0;">
+    <a href="/">Hoteli</a>
     <a href="/dodaj_smestaj">Dodaj novi hotel</a>
-    <a href="/izmeni_hotel">Izmeni podatke o hotelu</a>
-    <a href="/izmeni_hotel/{{ hotel.hotelID }}">Izmeni</a>
-    <a href="/obrisi_hotel/{{ hotel.hotelID }}">Obrisi</a>
     <a href="/filter">Preporuci mi hotel</a>
+    </div>
 
     <br>
+
     <main> 
     {% block content %}
     {% endblock %}
