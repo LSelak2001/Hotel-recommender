@@ -8,5 +8,8 @@ da li primaju ljubimce i kako je uslužena hrana.
 
 Postupak primene:
 Nakon preuzimanja fajlova sa Github-a, preuzmu se Flask, my-sql-connector, i ostale aplikacije zadate u fajlu "requirements.txt",
-potom se povežemo na MySQL server i ručno importujemo bazu podataka ("Create database" -> ispišemo ime baze -> dugme "Create" -> "Import" -> izaberemo preuzet SQL fajl -> dugme "Import").
+potom se povežemo na MySQL server importujemo bazu podataka: 
+
+("Import" -> izaberemo preuzet SQL fajl -> dugme "Import", fajl sadrži "CREATE DATABASE IF NOT EXISTS `smestaj`; USE `smestaj`;" upit za automatsko kreiranje baze pri importovanju).
+
 Kad to obavimo, Python aplikacija "app.py" se pokreće preko debugger-a (Python Debugger: Flask)
