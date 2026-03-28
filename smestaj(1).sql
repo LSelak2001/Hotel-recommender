@@ -63,7 +63,7 @@ CREATE TABLE `grad` (
 
 INSERT INTO `grad` (`gradID`, `naziv_grada`, `drzavaID`) VALUES
 (1, 'Tokio', 2),
-(2, 'Bec', 1),
+(2, 'Beč', 1),
 (3, 'Grac', 1),
 (4, 'Beograd', 4);
 
@@ -92,7 +92,7 @@ INSERT INTO `hotel` (`hotelID`, `naziv`, `gradID`, `adresa`, `zvezdice`, `ljubim
 (1, 'Paradise', 2, 'Franca Ferdinanda 5', 4, 0, 'hotel', 'polu-pansion'),
 (2, 'Sakura', 1, 'General Kasukabe, Shibuya', 5, 0, 'hotel', 'pun pansion'),
 (3, 'Mozart', 3, 'Wolfgang Amadeus Mozart 25', 3, 1, 'apartmani', 'samostalni obroci'),
-(4, 'Jugoslavija', 4, 'Bulevar Vuka Karadzica 20', 4, 0, 'Hotel', 'polu-pansion');
+(4, 'Jugoslavija', 4, 'Bulevar Vuka Karadžića 20', 4, 0, 'Hotel', 'polu-pansion');
 
 --
 -- Indexes for dumped tables
