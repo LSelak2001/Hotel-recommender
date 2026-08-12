@@ -8,12 +8,12 @@ from datetime import timedelta
 
 app = Flask(__name__) # rutina za kreiranje aplikacije
 app.config['SECRET_KEY'] = 'your-secret-key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root@localhost/smestaj'
 app.config['REMEMBER_COOKIE_DURATION'] = timedelta(days=30)
 
 db.init_app(app)    # inicijalizacija ekstenzije SQLAlchemy sa aplikacijom
 login_manager.init_app(app)
-login_manager.login_view = 'login'
+login_manager.login_view = 'korisnik.login'
 
 app.register_blueprint(hoteli_bp)
 app.register_blueprint(smestaj_bp)
