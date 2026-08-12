@@ -12,7 +12,7 @@ def admin_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if not current_user.is_authenticated or not current_user.is_admin:
-            abort(403)  # Zahtjev je odbijen ako korisnik nije prijavljen ili nije administrator.
+            abort(403)  # Zahtev je odbijen ako korisnik nije prijavljen ili nije administrator.
         return f(*args, **kwargs)
     return decorated_function
 
@@ -33,7 +33,7 @@ def login():
         korisnik = User.query.filter_by(email=email).first()
         if korisnik and check_password_hash(pwhash=korisnik.password, password=password):
             login_user(korisnik, remember=remember)
-            return redirect(url_for('korisnik.admin_dashboard') if korisnik.is_admin else url_for('korisnik.dashboard'))
+            return redirect(url_for('korisnik.admin_dashboard') if korisnik.is_admin else url_for('hoteli.index'))
         flash('Invalid email or password')
     return render_template('login.html')
 
@@ -57,7 +57,7 @@ def register():
             flash('Registration error — please try a different email')
             return render_template('register.html')
 
-        return redirect(url_for('korisnik.login'))
+        return redirect(url_for('hoteli.index'))
     return render_template('register.html')
 
 @korisnik_bp.route('/dashboard')
