@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
 from routes.ekstenzije import db
 from routes.modeli import User
+from sqlalchemy.exc import IntegrityError
 
 korisnik_bp = Blueprint("korisnik", __name__)   # kreira Blueprint za korisničke rute, što omogućava modularizaciju aplikacije i organizaciju ruta u odvojene komponente.
 
@@ -24,40 +25,48 @@ def admin_dashboard():
 
 @korisnik_bp.route('/login', methods=['GET', 'POST'])
 def login():
-    user = None
+    korisnik = None
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
         remember = 'remember' in request.form
-        user = User.query.filter_by(email=email).first()
-        if user and check_password_hash(pwhash=user.password, password=password):
-            login_user(user, remember=remember)
-            return redirect(url_for('dashboard'))
+        korisnik = User.query.filter_by(email=email).first()
+        if korisnik and check_password_hash(pwhash=korisnik.password, password=password):
+            login_user(korisnik, remember=remember)
+            return redirect(url_for('korisnik.admin_dashboard') if korisnik.is_admin else url_for('korisnik.dashboard'))
         flash('Invalid email or password')
     return render_template('login.html')
 
 @korisnik_bp.route('/register', methods=['GET', 'POST'])
 def register():
-    user = None
     if request.method == 'POST':
-        username: str = request.form['username']
-        email: str = request.form['email']
-        password: str = generate_password_hash(request.form['password'])
-        user = User(username,
-                    email,
-                    check_password_hash(pwhash=user.password, password=password))
-        db.session.add(user)
-        db.session.commit()
-        return redirect(url_for('login'))
+        username = request.form['username']
+        email = request.form['email']
+        password_hashed = generate_password_hash(request.form['password'])
+
+        if User.query.filter_by(email=email).first():
+            flash('Email already registered')
+            return render_template('register.html')
+
+        korisnik = User(username=username, email=email, password=password_hashed, role='korisnik')
+        db.session.add(korisnik)
+        try:
+            db.session.commit()
+        except IntegrityError:
+            db.session.rollback()
+            flash('Registration error — please try a different email')
+            return render_template('register.html')
+
+        return redirect(url_for('korisnik.login'))
     return render_template('register.html')
 
 @korisnik_bp.route('/dashboard')
 @login_required
 def dashboard():
-    return render_template('dashboard.html')
+    return render_template('admin.html')
 
 @korisnik_bp.route('/logout')
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('login'))
+    return redirect(url_for('korisnik.login'))
