@@ -2,40 +2,53 @@
 
 {% block content %}
 
-<h2>Izmeni hotel</h2>
+<h2 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; margin-top: 10px; margin-bottom: 10px;">Izmeni hotel</h2>
 
-<div style="max-width: 400px; margin: 0 auto;">
+<div class="hotel-form-container" style="max-width: 400px; margin: 0 auto;">
 <form action="{{ url_for('smestaj.izmeni', hotel_id=hotel.hotelID) }}" method="POST" style="display: flex; flex-direction: column; gap: 10px;">
+    <div class="mb-3">
+        <label for="naziv" class="form-label">Naziv:</label>
+        <input type="text" name="naziv" id="naziv" class="form-control" value="{{ hotel.naziv }}">
+    </div>
+    
+    <div class="mb-3">
+        <label for="adresa" class="form-label">Adresa:</label>
+        <input type="text" name="adresa" id="adresa" class="form-control" value="{{ hotel.adresa }}">
+    </div>
+    
+    <div class="mb-3">
+        <label for="naziv_grada" class="form-label">Grad:</label>
+        <input type="text" name="naziv_grada" id="naziv_grada" class="form-control" value="{{ hotel.grad_naziv }}">
+        <input type="hidden" name="grad_id" value="{{ hotel.gradID }}">
+    </div>
 
-    <label>Naziv:</label>
-    <input type="text" name="naziv" value="{{ hotel.naziv }}">
+    <div class="mb-3">
+        <label for="zvezdice" class="form-label">Zvezdice:</label>
+        <input type="number" name="zvezdice" id="zvezdice" class="form-control" value="{{ hotel.zvezdice }}" min="1" max="5">
+    </div>
 
-    <label>Adresa:</label>
-    <input type="text" name="adresa" value="{{ hotel.adresa }}">
+    <div class="mb-3">
+        <label for="ljubimci" class="form-label">Ljubimci:</label>
+        <select name="ljubimci" id="ljubimci" class="form-control">
+            <option value="1" {% if hotel.ljubimci == 1 %}selected{% endif %}>Da</option>
+            <option value="0" {% if hotel.ljubimci == 0 %}selected{% endif %}>Ne</option>
+        </select>
+    </div>
 
-    <label>Grad:</label>
-    <input type="text" name="naziv_grada" value="{{ hotel.grad_naziv }}">
+    <div class="mb-3">
+        <label for="vrsta_smestaja" class="form-label">Vrsta smeštaja:</label>
+        <input type="text" name="vrsta_smestaja" id="vrsta_smestaja" class="form-control" value="{{ hotel.vrsta_smestaja }}">
+    </div>
 
-    <input type="hidden" name="grad_id" value="{{ hotel.gradID }}">
-
-    <label>Zvezdice:</label>
-    <input type="number" name="zvezdice" value="{{ hotel.zvezdice }}" min="1" max="5">
-
-    <label>Ljubimci:</label>
-    <select name="ljubimci">
-        <option value="1" {% if hotel.ljubimci == 1 %}selected{% endif %}>Da</option>
-        <option value="0" {% if hotel.ljubimci == 0 %}selected{% endif %}>Ne</option>
-    </select>
-
-    <label>Vrsta smeštaja:</label>
-    <input type="text" name="vrsta_smestaja" value="{{ hotel.vrsta_smestaja }}">
-
-    <label>Obrok:</label>
-    <input type="text" name="obrok" value="{{ hotel.obrok }}">
-
-    <button type="submit">Sačuvaj izmene</button>
-    <a href="{{ url_for('hoteli.index') }}">Odustani</a>
-
+    <div class="mb-3">
+        <label for="obrok" class="form-label">Obrok:</label>
+        <input type="text" name="obrok" id="obrok" class="form-control" value="{{ hotel.obrok }}">
+    </div>
+    
+    <div class="mb-3 col-6 mx-auto">
+        <button type="submit" class="btn btn-success">Sačuvaj izmene</button>
+        <a href="{{ url_for('hoteli.index') }}">Odustani</a>
+    </div>
 </form>
 </div>
 
