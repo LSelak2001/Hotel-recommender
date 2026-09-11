@@ -18,12 +18,17 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="\">Home</a>
                 </li>
+
+                {% if current_user.is_authenticated and current_user.role == 'admin' %}
                 <li class="nav-item">
                     <a class="nav-link" href="dodaj_smestaj">Dodaj hotel</a>
                 </li>
+                {% endif %}
+
                 <li class="nav-item">
                     <a class="nav-link" href="filter">Preporuči mi hotel</a>
                 </li>
+                
                 <li>
                     <a class="nav-link" href="login">Login</a>
                 </li>
