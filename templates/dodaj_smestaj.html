@@ -1,41 +1,47 @@
 {% extends "index.html" %}
 
 {% block content %}
-<div style="background-color: white; padding: 20px; border-radius: 10px; max-width: 500px; margin: auto; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); text-align: center;">
+<div class="hotel-form-container" style="max-width: 400px;">
 <form method="post">
-    Naziv hotela:<br>
-    <input type="text" name="naziv"><br><br>
-
-    Grad:<br>
-    <input type="text" name="grad" required><br><br>
-
-    Država:<br>
-    <input type="text" name="drzava" required><br><br>
-
-    Kontinent:<br>
-    <input type="text" name="kontinet" required><br><br>
-
-    Adresa:<br>
-    <input type="text" name="adresa" required><br><br>
-    
-
-    Zvezdice:<br>
-    <input type="number" name="zvezdice" min="1" max="5" required><br><br>
-
-    Ljubimci:<br>
-    <select name="ljubimci" required>
-        <option value="">-- Izaberite --</option>
-        <option value="1">Da</option>
-        <option value="0">Ne</option>
-    </select><br><br>
-
-    Vrsta smeštaja:<br>
-    <input type="text" name="vrsta_smestaja" required><br><br>
-
-    Obrok:<br>
-    <input type="text" name="obrok" required><br><br>
-
-    <button type="submit">Dodaj hotel</button>
+    <div class="mb-3">
+        <label for="naziv" class="form-label">Naziv hotela:</label>
+        <input type="text" name="naziv" id="naziv" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="grad" class="form-label">Grad:</label>
+        <input type="text" name="grad" id="grad" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="drzava" class="form-label">Država:</label>
+        <input type="text" name="drzava" id="drzava" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="adresa" class="form-label">Adresa:</label>
+        <input type="text" name="adresa" id="adresa" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="zvezdice" class="form-label">Zvezdice:</label>
+        <input type="number" name="zvezdice" id="zvezdice" class="form-control" min="1" max="5">
+    </div>
+    <div class="mb-3">
+        <label for="ljubimci" class="form-label">Ljubimci:</label>
+        <select name="ljubimci" id="ljubimci" class="form-control">
+            <option value="">-- Izaberite --</option>
+            <option value="1">Da</option>
+            <option value="0">Ne</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="vrsta_smestaja" class="form-label">Vrsta smeštaja:</label>
+        <input type="text" name="vrsta_smestaja" id="vrsta_smestaja" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="obrok" class="form-label">Obrok:</label>
+        <input type="text" name="obrok" id="obrok" class="form-control">
+    </div>
+    <div class="mb-3 col-6 mx-auto">
+    <button type="submit" class="btn btn-primary">Dodaj hotel</button>
+    </div>
 </form>
 </div>
 

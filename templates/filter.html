@@ -2,29 +2,33 @@
 
 {% block content %}
 
-<h2>Kakav hotel ste zamišljali?</h2>
+<h2 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; margin-top: 10px; margin-bottom: 10px;">Kakav hotel ste zamišljali?</h2>
 
-<div style="background-color: white; padding: 20px; border-radius: 10px; max-width: 500px; margin: auto; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); text-align: center;">
+<div class="hotel-form-container" style="max-width: 400px;">
 <form method="post" action="/filter">
-    
-    Zvezdice:<br>
-    <input type="number" name="zvezdice" min="1" max="5"><br><br>
-    
-    Ljubimci:<br>
-    <select name="ljubimci">
-        <option value="">-- Izaberite --</option>
-        <option value="1">Da</option>
-        <option value="0">Ne</option>
-    </select>
-    <br><br>
-    
-    Vrsta smeštaja:<br>
-    <input type="text" name="vrsta_smestaja"><br><br>
-    
-    Obrok:<br>
-    <input type="text" name="obrok"><br><br>
-    
-    <button type="submit">Preporuči</button>
+    <div class="mb-3">
+        <label for="zvezdice" class="form-label">Zvezdice:</label>
+        <input type="number" name="zvezdice" id="zvezdice" class="form-control" min="1" max="5">
+    </div>
+    <div class="mb-3">
+        <label for="ljubimci" class="form-label">Ljubimci:</label>
+        <select name="ljubimci" id="ljubimci" class="form-control">
+            <option value="">-- Izaberite --</option>
+            <option value="1">Da</option>
+            <option value="0">Ne</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="vrsta_smestaja" class="form-label">Vrsta smeštaja:</label>
+        <input type="text" name="vrsta_smestaja" id="vrsta_smestaja" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="obrok" class="form-label">Obrok:</label>
+        <input type="text" name="obrok" id="obrok" class="form-control">
+    </div>
+    <div class="mb-3 col-6 mx-auto">
+        <button type="submit" class="btn btn-primary">Preporuči</button>
+    </div>
 </form>
 </div>
 
