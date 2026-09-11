@@ -1,22 +1,25 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <h2>Lista hotela</h2>
-    <table border="1" cellpadding="10">
-        <tr>
-            <th>Redni broj</th>
-            <th>Naziv</th>
-            <th>Adresa</th>
-            <th>Zvezdice</th>
-            <th>Ljubimci</th>
-            <th>Vrsta smeštaja</th>
-            <th>Obrok</th>
-            <th>Grad</th>
-            <th>Akcije</th>
-        </tr>
-        {% for hotel in hoteli %}
+    <h2 style="text-align: center; margin-top: 10px; padding: 10px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Lista hotela</h2>
+    <table border="1" cellpadding="10" class="table hotel-table" style="width: 80%; border-collapse: collapse; text-align: center;">
+        <thead>
+            <tr>
+                <th scope="col">Redni broj</th>
+                <th scope="col">Naziv</th>
+                <th scope="col">Adresa</th>
+                <th scope="col">Zvezdice</th>
+                <th scope="col">Ljubimci</th>
+                <th scope="col">Vrsta smeštaja</th>
+                <th scope="col">Obrok</th>
+                <th scope="col">Grad</th>
+                <th scope="col">Akcije</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for hotel in hoteli %}
         <tr style="text-align:center;">
-            <td>{{ hotel.hotelID }}</td>
+            <th scope="row">{{ hotel.hotelID }}</th>
             <td>{{ hotel.naziv }}</td>
             <td>{{ hotel.adresa }}</td>
             <td>{{ hotel.zvezdice }}</td>
@@ -33,10 +36,10 @@
         <td style="text-align: center; vertical-align: middle;">
             <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
                 <a href="/izmeni_hotel/{{ hotel.hotelID }}" style="text-decoration: none;">
-                    <button type="button" style="margin: 0;">Izmeni</button>
+                    <button type="button" style="margin: 0;" class="btn btn-primary">Izmeni</button>
                 </a>
                 <form action="/obrisi/{{ hotel.hotelID }}" method="POST" style="margin: 0; padding: 0;">
-                    <button type="submit" onclick="return confirm('Da li ste sigurni')">Obriši</button>
+                    <button type="submit" onclick="return confirm('Da li ste sigurni')" class="btn btn-danger">Obriši</button>
                 </form>
             </div>
         </td>
