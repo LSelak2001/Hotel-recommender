@@ -2,8 +2,17 @@ table {
     width: 80%;
     margin: 20px auto;
     border-collapse: collapse;
-    background-color: #d3d019;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.hotel-table > :not(caption) > * > * {
+    background-color: yellow;
+}
+
+.site-navbar {
+    width: 80%;
+    margin: 0 auto;
+    background-color:rgb(38, 153,153);
 }
 
 th, td {
@@ -20,6 +29,23 @@ form {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.hotel-form-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: yellow;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.hotel-form-container form {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+}
+
 input:focus, select:focus  {
     border: 2px solid  #0056b3 ;
     outline: none;
@@ -30,7 +56,6 @@ input:focus, select:focus  {
 button {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(135deg,#007BFF, #0056b3);
     border: none;
     color: white;
     border-radius: 8px;
@@ -43,7 +68,6 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(135deg, #0056b3, #004085);
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 
@@ -52,14 +76,13 @@ button:hover {
 button:active {
     transform: translateY(0);
     box-shadow: 0 2px  4px rgba(0, 0, 0, 0.2);
-}    
+} 
 
 a:hover {
     background: linear-gradient(135deg, #0056b3, #004085);   
 }
 a:active {
     transform: translateY(2px);
-    box-shadow: 0 2px 0 #003f7f;
 }
 
 iframe {
@@ -74,4 +97,18 @@ iframe {
 h1, h2 {
     text-align: center;
     color: #333;
+}
+
+body {
+    font-family: Arial, serif;
+    font-size: 20px;
+    padding: 20px;
+    background-color: rgb(38, 153,153);
+    align-items: center;
+}
+
+a {
+    color: rgb(187, 91, 28);
+    margin-right: 10px;
+    text-align: center;
 }
